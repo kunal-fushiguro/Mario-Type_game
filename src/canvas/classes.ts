@@ -42,7 +42,14 @@ class Player {
     // clear the previous so that the new one can render using animate function
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
     this.position.y += this.velocity.y;
-    this.velocity.y += this.gravity;
+    if (
+      this.position.y + this.height + this.velocity.y <=
+      this.ctx.canvas.height
+    ) {
+      this.velocity.y += this.gravity;
+    } else {
+      this.velocity.y = 0;
+    }
     this.draw();
   }
 }

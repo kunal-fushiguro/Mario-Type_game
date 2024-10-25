@@ -19,7 +19,7 @@ const Canvas: React.FC<CanvasProps> = ({ height, width }) => {
       if (context) {
         player = new Player(context);
         player.draw();
-        // animate();
+        animate();
       }
     }
   }, []);
