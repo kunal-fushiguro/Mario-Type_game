@@ -23,7 +23,7 @@ class Player {
     this.height = 30;
     this.width = 30;
     this.ctx = ctx;
-    this.gravity = 0.2;
+    this.gravity = 0.5;
   }
 
   //   drawing a player
@@ -42,6 +42,7 @@ class Player {
     // clear the previous so that the new one can render using animate function
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
     this.position.y += this.velocity.y;
+    // condition for a surface here to that player stop on the bottom of the canvas
     if (
       this.position.y + this.height + this.velocity.y <=
       this.ctx.canvas.height
@@ -51,6 +52,10 @@ class Player {
       this.velocity.y = 0;
     }
     this.draw();
+  }
+
+  up() {
+    this.velocity.y -= 15;
   }
 }
 
