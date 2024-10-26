@@ -41,7 +41,9 @@ class Player {
   update() {
     // clear the previous so that the new one can render using animate function
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+    this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
+
     // condition for a surface here to that player stop on the bottom of the canvas
     if (
       this.position.y + this.height + this.velocity.y <=
@@ -55,7 +57,19 @@ class Player {
   }
 
   up() {
-    this.velocity.y -= 15;
+    this.velocity.y -= 10;
+  }
+
+  right() {
+    this.velocity.x += 5;
+  }
+
+  stopMoving() {
+    this.velocity.x = 0;
+  }
+
+  left() {
+    this.velocity.x -= 5;
   }
 }
 

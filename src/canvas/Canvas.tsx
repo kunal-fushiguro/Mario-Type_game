@@ -12,15 +12,27 @@ const Canvas: React.FC<CanvasProps> = ({ height, width }) => {
     player.update();
   }
 
-  window.addEventListener("keyup", (e) => {
+  window.addEventListener("keydown", (e) => {
     if (e.keyCode === 87) {
       player.up();
     } else if (e.keyCode === 83) {
       console.log("DOWN");
     } else if (e.keyCode === 65) {
-      console.log("LEFT");
+      player.left();
     } else if (e.keyCode === 68) {
-      console.log("RIGHT");
+      player.right();
+    }
+  });
+
+  window.addEventListener("keyup", (e) => {
+    if (e.keyCode === 87) {
+      // player.up();
+    } else if (e.keyCode === 83) {
+      console.log("DOWN");
+    } else if (e.keyCode === 65) {
+      player.stopMoving();
+    } else if (e.keyCode === 68) {
+      player.stopMoving();
     }
   });
 
