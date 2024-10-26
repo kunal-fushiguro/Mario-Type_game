@@ -73,4 +73,32 @@ class Player {
   }
 }
 
-export { Player };
+class Platform {
+  position: { x: number; y: number };
+  width: number;
+  height: number;
+  ctx: CanvasRenderingContext2D;
+  constructor(ctx: CanvasRenderingContext2D) {
+    this.position = {
+      x: 500,
+      y: 500,
+    };
+    this.width = 200;
+    this.height = 20;
+    this.ctx = ctx;
+    console.log("run");
+  }
+
+  // drawing platform
+  draw() {
+    this.ctx.fillStyle = "blue";
+    this.ctx.fillRect(
+      this.position.x,
+      this.position.y,
+      this.width,
+      this.height
+    );
+  }
+}
+
+export { Player, Platform };
